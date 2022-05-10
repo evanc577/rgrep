@@ -800,9 +800,26 @@ span.flatpickr-weekday {
 </style>
     
     
-    <style type="text/css">body {
-    background-color: #272822;
-    color: #e1e1da;
+    <style type="text/css">:root {
+    --bg: #272822;
+    --fg: #e1e1da;
+    --search-bg: #474842;
+    --search-border: #222222;
+    --card-bg: #2f302a;
+    --card-hover:#373832;
+    --time-picker-bg: #ab9df2;
+    --time-picker-selected: #78dce8;
+    --time: #78dce8;
+    --search-button-bg: #e6c35c;
+    --search-button-hover: #ffd866;
+    --subreddit: #ff6188;
+    --author: #ffd866;
+    --shadow: rgba(0, 0, 0, 0.4);
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--fg);
 }
 
 .search {
@@ -829,31 +846,99 @@ span.flatpickr-weekday {
 }
 
 #endpoint {
-    margin: 0.25rem auto 0.25rem auto;
+    margin: 0 auto 0.25rem auto;
     padding: 0.25rem;
     font-size: 1.25rem;
-    color: #e1e1da;
-    background-color: #474842;
+    color: var(--fg);
+    background-color: var(--search-bg);
     box-sizing: border-box;
-    border: 1px solid #222222;
+    border: 1px solid var(--search-border);
     border-radius: 5px;
+    width: 100%;
+}
+
+.endpoint {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search label {
+    font-size: 0.8rem;
 }
 
 .search input {
-    color: #e1e1da;
-    background-color: #474842;
+    color: var(--fg);
+    background-color: var(--search-bg);
     box-sizing: border-box;
-    border: 1px solid #222222;
+    border: 1px solid var(--search-border);
     border-radius: 5px;
     padding: 0.25rem;
-    margin: 0.25rem 0 0.25rem 0;
+    margin: 0 0 0.25rem 0;
     font-size: 1.25rem;
     width: 100%;
 }
 
+.flatpickr-calendar,
+.flatpickr-months .flatpickr-month,
+.flatpickr-current-month .flatpickr-monthDropdown-months,
+.flatpickr-current-month .flatpickr-monthDropdown-months .flatpickr-monthDropdown-month,
+span.flatpickr-weekday {
+    background-color: var(--card-bg);
+}
+
+.flatpickr-months .flatpickr-prev-month:hover svg,
+.flatpickr-months .flatpickr-next-month:hover svg {
+    fill: var(--time-picker-bg);
+}
+
+.flatpickr-time input:hover,
+.flatpickr-time .flatpickr-am-pm:hover,
+.flatpickr-time input:focus,
+.flatpickr-time .flatpickr-am-pm:focus {
+    background-color: var(--time-picker-bg);
+}
+
+.flatpickr-day.inRange,
+.flatpickr-day.prevMonthDay.inRange,
+.flatpickr-day.nextMonthDay.inRange,
+.flatpickr-day.today.inRange,
+.flatpickr-day.prevMonthDay.today.inRange,
+.flatpickr-day.nextMonthDay.today.inRange,
+.flatpickr-day:hover,
+.flatpickr-day.prevMonthDay:hover,
+.flatpickr-day.nextMonthDay:hover,
+.flatpickr-day:focus,
+.flatpickr-day.prevMonthDay:focus,
+.flatpickr-day.nextMonthDay:focus {
+    background-color: var(--time-picker-bg);
+    border-color: var(--time-picker-bg);
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange,
+.flatpickr-day.selected.inRange,
+.flatpickr-day.startRange.inRange,
+.flatpickr-day.endRange.inRange,
+.flatpickr-day.selected:focus,
+.flatpickr-day.startRange:focus,
+.flatpickr-day.endRange:focus,
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange:hover,
+.flatpickr-day.endRange:hover,
+.flatpickr-day.selected.prevMonthDay,
+.flatpickr-day.startRange.prevMonthDay,
+.flatpickr-day.endRange.prevMonthDay,
+.flatpickr-day.selected.nextMonthDay,
+.flatpickr-day.startRange.nextMonthDay,
+.flatpickr-day.endRange.nextMonthDay {
+    background-color: var(--time-picker-selected);
+    border-color: var(--time-picker-selected);
+}
+
 .search_button {
-    background-color: #e6c35c;
-    color: #474842;
+    background-color: var(--search-button-bg);
+    color: var(--search-bg);
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -863,8 +948,8 @@ span.flatpickr-weekday {
 }
 
 .button_active:hover {
-    background-color: #ffd866;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+    background-color: var(--search-button-hover);
+    box-shadow: 0px 0px 20px var(--shadow);
     cursor: pointer;
 }
 
@@ -885,14 +970,14 @@ span.flatpickr-weekday {
     margin: 5px auto 5px auto;
     padding: 5px;
     border-radius: 5px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
-    color: #e1e1da;
-    background-color: #2f302a;
+    box-shadow: 0px 0px 5px var(--shadow);
+    color: var(--fg);
+    background-color: var(--card-bg);
 }
 
 .reddit_comment:hover {
-    background-color: #373832;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+    background-color: var(--card-hover);
+    box-shadow: 0px 0px 20px var(--shadow);
 }
 
 .reddit_comment *:link {
@@ -921,16 +1006,16 @@ span.flatpickr-weekday {
 }
 
 .subreddit {
-    color: #ff6188;
+    color: var(--subreddit);
 }
 
 .author {
-    color: #ffd866;
+    color: var(--author);
     flex-grow: 1;
 }
 
 .time {
-    color: #78dce8;
+    color: var(--time);
 }
 
 .post {
@@ -950,7 +1035,7 @@ span.flatpickr-weekday {
 
 .comment_title,
 .comment_body {
-    color: #e1e1da;
+    color: var(--fg);
     margin: 5px;
     word-break: break-word;
     white-space: pre-line;
@@ -972,8 +1057,8 @@ span.flatpickr-weekday {
 </style>
     <title>RGrep</title>
 
-<link rel="preload" href="/rgrep/index-19424b31d4e4072b_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
-<link rel="modulepreload" href="/rgrep/index-19424b31d4e4072b.js"></head>
+<link rel="preload" href="/rgrep/index-3001dbcfb59753b7_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
+<link rel="modulepreload" href="/rgrep/index-3001dbcfb59753b7.js"></head>
 
 <body>
-<script type="module">import init from '/rgrep/index-19424b31d4e4072b.js';init('/rgrep/index-19424b31d4e4072b_bg.wasm');</script></body></html>
+<script type="module">import init from '/rgrep/index-3001dbcfb59753b7.js';init('/rgrep/index-3001dbcfb59753b7_bg.wasm');</script></body></html>
