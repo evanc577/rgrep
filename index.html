@@ -837,8 +837,12 @@ body {
     flex-wrap: wrap;
 }
 
+.spacer {
+    width: 2px;
+}
+
 .search_half {
-    width: 50%;
+    width: calc(50% - 2px/2);
 }
 
 .search_full {
@@ -876,6 +880,10 @@ body {
     margin: 0 0 0.25rem 0;
     font-size: 1.25rem;
     width: 100%;
+}
+
+input:hover {
+    cursor: text;
 }
 
 .flatpickr-calendar,
@@ -1061,8 +1069,8 @@ span.flatpickr-weekday {
 </style>
     <title>RGrep</title>
 
-<link rel="preload" href="/rgrep/index-c35d5eee38b8efa5_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
-<link rel="modulepreload" href="/rgrep/index-c35d5eee38b8efa5.js"></head>
+<link rel="preload" href="/rgrep/index-890f12845a347803_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
+<link rel="modulepreload" href="/rgrep/index-890f12845a347803.js"></head>
 
 <body>
-<script type="module">import init from '/rgrep/index-c35d5eee38b8efa5.js';init('/rgrep/index-c35d5eee38b8efa5_bg.wasm');</script></body></html>
+<script type="module">import init from '/rgrep/index-890f12845a347803.js';init('/rgrep/index-890f12845a347803_bg.wasm');</script></body></html>
